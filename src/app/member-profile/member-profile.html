@@ -3,10 +3,28 @@
   <!-- ═══ SECTION 1 — HERO (full-screen, OG card style) ═══ -->
   <section class="p-hero">
 
-    <!-- Back nav -->
-    <a routerLink="/team" class="back-btn">
-      <i class="fa-solid fa-arrow-left"></i> Team
-    </a>
+    <!-- Top bar: back + prev/next -->
+    <div class="top-bar">
+      <a routerLink="/team" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i> Team
+      </a>
+
+      <div class="top-nav">
+        @if (prevMember) {
+          <a class="top-nav-btn" [routerLink]="['/member', prevMember.slug]">
+            <i class="fa-solid fa-arrow-left"></i> {{ prevMember.name }}
+          </a>
+        }
+        <a class="top-nav-all" routerLink="/team">
+          <i class="fa-solid fa-users"></i>
+        </a>
+        @if (nextMember) {
+          <a class="top-nav-btn" [routerLink]="['/member', nextMember.slug]">
+            {{ nextMember.name }} <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        }
+      </div>
+    </div>
 
     <!-- Huge name -->
     <div class="p-name-wrap">
@@ -79,36 +97,5 @@
     </div>
   </section>
 
-  <!-- ═══ SECTION 5 — PREV / NEXT NAVIGATION ═══ -->
-  <section class="p-nav">
-    <div class="p-nav-inner">
-
-      @if (prevMember) {
-        <a class="p-nav-card prev" [routerLink]="['/member', prevMember.slug]">
-          <span class="nav-dir"><i class="fa-solid fa-arrow-left"></i> Previous</span>
-          <span class="nav-name">{{ prevMember.name }}</span>
-          <span class="nav-role">{{ prevMember.role }}</span>
-        </a>
-      } @else {
-        <div></div>
-      }
-
-      <a class="p-nav-home" routerLink="/team">
-        <i class="fa-solid fa-users"></i>
-        <span>All Members</span>
-      </a>
-
-      @if (nextMember) {
-        <a class="p-nav-card next" [routerLink]="['/member', nextMember.slug]">
-          <span class="nav-dir">Next <i class="fa-solid fa-arrow-right"></i></span>
-          <span class="nav-name">{{ nextMember.name }}</span>
-          <span class="nav-role">{{ nextMember.role }}</span>
-        </a>
-      } @else {
-        <div></div>
-      }
-
-    </div>
-  </section>
-
 }
+
