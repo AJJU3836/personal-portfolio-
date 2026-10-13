@@ -1,61 +1,114 @@
 @if (member) {
-  <div class="profile-page">
 
-    <!-- Back button -->
-    <a routerLink="/" class="back-btn">
-      <i class="fa-solid fa-arrow-left"></i> Back to Home
+  <!-- ═══ SECTION 1 — HERO (full-screen, OG card style) ═══ -->
+  <section class="p-hero">
+
+    <!-- Back nav -->
+    <a routerLink="/team" class="back-btn">
+      <i class="fa-solid fa-arrow-left"></i> Team
     </a>
 
-    <!-- Hero strip -->
-    <div class="profile-hero">
-      <div class="profile-photo">
-        <img [src]="member.photo" [alt]="member.name" />
-      </div>
-      <div class="profile-intro">
-        <h1 data-aos="fade-up" data-aos-duration="1000">{{ member.name }}</h1>
-        <p class="profile-role" data-aos="fade-up" data-aos-duration="1200">{{ member.role }}</p>
-        <p class="profile-bio" data-aos="fade-up" data-aos-duration="1400">{{ member.bio }}</p>
+    <!-- Huge name -->
+    <div class="p-name-wrap">
+      <h1 class="p-name" data-aos="fade-up" data-aos-duration="1000">
+        {{ member.name }}
+      </h1>
+      <span class="p-index">0{{ currentIndex + 1 }}</span>
+    </div>
 
-        <!-- Social links -->
-        <div class="profile-links" data-aos="fade-up" data-aos-duration="1600">
-          <a [href]="member.github" target="_blank" title="GitHub">
-            <i class="fa-brands fa-github"></i> GitHub
-          </a>
-          <a [href]="member.linkedin" target="_blank" title="LinkedIn">
-            <i class="fa-brands fa-linkedin"></i> LinkedIn
-          </a>
-          <a [href]="'mailto:' + member.email" title="Email">
-            <i class="fa-solid fa-envelope"></i> Email
+    <!-- Role badge -->
+    <p class="p-role" data-aos="fade-up" data-aos-duration="1200">
+      <i class="fa-solid fa-circle-dot"></i> {{ member.role }}
+    </p>
+
+    <!-- Photo -->
+    <div class="p-photo-wrap" data-aos="fade-left" data-aos-duration="1200">
+      <div class="p-photo">
+        <img [src]="member.photo" [alt]="member.name + ' photo'" />
+      </div>
+    </div>
+
+    <!-- Social icons in hero -->
+    <div class="p-socials" data-aos="fade-up" data-aos-duration="1400">
+      <a [href]="member.github"          target="_blank" class="social-pill">
+        <i class="fa-brands fa-github"></i> GitHub
+      </a>
+      <a [href]="member.linkedin"        target="_blank" class="social-pill">
+        <i class="fa-brands fa-linkedin"></i> LinkedIn
+      </a>
+      <a [href]="'mailto:' + member.email"              class="social-pill">
+        <i class="fa-solid fa-envelope"></i> Email
+      </a>
+    </div>
+
+  </section>
+
+  <!-- ═══ SECTION 2 — ABOUT ═══ -->
+  <section class="p-about">
+    <p class="section-label" data-aos="fade-right" data-aos-duration="900">ABOUT</p>
+    <p class="p-bio" data-aos="fade-up" data-aos-duration="1000">{{ member.bio }}</p>
+  </section>
+
+  <!-- ═══ SECTION 3 — SKILLS ═══ -->
+  <section class="p-skills">
+    <p class="section-label" data-aos="fade-right" data-aos-duration="900">SKILLS</p>
+    <ul class="skills-grid" data-aos="fade-up" data-aos-duration="900">
+      @for (skill of member.skills; track skill; let i = $index) {
+        <li class="skill-pill" [attr.data-aos]="'zoom-in'"
+            [attr.data-aos-delay]="i * 80">
+          {{ skill }}
+        </li>
+      }
+    </ul>
+  </section>
+
+  <!-- ═══ SECTION 4 — PROJECTS ═══ -->
+  <section class="p-projects">
+    <p class="section-label" data-aos="fade-right" data-aos-duration="900">PROJECTS</p>
+    <div class="projects-row">
+      @for (project of member.projects; track project.name; let i = $index) {
+        <div class="proj-card" data-aos="fade-up" [attr.data-aos-delay]="i * 120">
+          <div class="proj-num">0{{ i + 1 }}</div>
+          <h3 class="proj-title">{{ project.name }}</h3>
+          <p  class="proj-desc">{{ project.description }}</p>
+          <a  class="proj-link" [href]="project.url" target="_blank">
+            View Project <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
         </div>
-      </div>
+      }
     </div>
+  </section>
 
-    <!-- Skills -->
-    <div class="profile-section" data-aos="fade-up" data-aos-duration="900">
-      <h2>Skills</h2>
-      <ul class="skills-list">
-        @for (skill of member.skills; track skill) {
-          <li>{{ skill }}</li>
-        }
-      </ul>
+  <!-- ═══ SECTION 5 — PREV / NEXT NAVIGATION ═══ -->
+  <section class="p-nav">
+    <div class="p-nav-inner">
+
+      @if (prevMember) {
+        <a class="p-nav-card prev" [routerLink]="['/member', prevMember.slug]">
+          <span class="nav-dir"><i class="fa-solid fa-arrow-left"></i> Previous</span>
+          <span class="nav-name">{{ prevMember.name }}</span>
+          <span class="nav-role">{{ prevMember.role }}</span>
+        </a>
+      } @else {
+        <div></div>
+      }
+
+      <a class="p-nav-home" routerLink="/team">
+        <i class="fa-solid fa-users"></i>
+        <span>All Members</span>
+      </a>
+
+      @if (nextMember) {
+        <a class="p-nav-card next" [routerLink]="['/member', nextMember.slug]">
+          <span class="nav-dir">Next <i class="fa-solid fa-arrow-right"></i></span>
+          <span class="nav-name">{{ nextMember.name }}</span>
+          <span class="nav-role">{{ nextMember.role }}</span>
+        </a>
+      } @else {
+        <div></div>
+      }
+
     </div>
+  </section>
 
-    <!-- Projects -->
-    <div class="profile-section" data-aos="fade-up" data-aos-duration="900">
-      <h2>Projects</h2>
-      <div class="projects-grid">
-        @for (project of member.projects; track project.name) {
-          <div class="project-card">
-            <h3>{{ project.name }}</h3>
-            <p>{{ project.description }}</p>
-            <a [href]="project.url" target="_blank" class="project-link">
-              View <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-          </div>
-        }
-      </div>
-    </div>
-
-  </div>
 }
