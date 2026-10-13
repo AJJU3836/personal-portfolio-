@@ -1,0 +1,28 @@
+<section class="hero-card" id="card1">
+  <div class="hero-content">
+    <p data-aos="fade-up" data-aos-duration="1200">
+      <span>INNO</span><br>VEX
+    </p>
+    <h2 data-aos="fade-up" data-aos-duration="1500">
+      Five developers. One vision. Built together.
+    </h2>
+  </div>
+</section>
+
+<section class="about-card" id="card2">
+  <p class="section-label" data-aos="fade-down" data-aos-duration="1200">ABOUT US</p>
+  <p class="about-text" data-aos="fade-up" data-aos-duration="1400">
+    We are a team of five passionate students specialising in design, frontend,
+    backend, full-stack development, and project leadership. We collaborate to
+    build real-world web applications using modern technologies.
+  </p>
+</section>
+
+<section class="team-card" id="card3">
+  <p class="section-label" data-aos="fade-down" data-aos-duration="1200">MEET THE TEAM</p>
+  <div class="members-grid">
+    @for (member of team; track member.slug) {
+      <app-member-card [member]="member" data-aos="zoom-in" data-aos-duration="600" />
+    }
+  </div>
+</section>

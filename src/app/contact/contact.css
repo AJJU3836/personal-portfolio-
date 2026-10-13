@@ -1,0 +1,83 @@
+/* ===== CONTACT PAGE ===== */
+.page-hero {
+  min-height: 35vh;
+  background: var(--c5);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 7rem 6vw 2rem;
+}
+
+.contact-title {
+  font-family: var(--font-disp);
+  font-size: clamp(4rem, 12vw, 12rem);
+  color: var(--text-lt);
+  line-height: 0.9;
+}
+
+.contact-hr {
+  width: 80%;
+  max-width: 900px;
+  border: 2px solid var(--text-lt);
+  border-radius: 40px;
+  margin: 1.5rem 0 0;
+}
+
+.contact-section {
+  background: var(--c5);
+  padding: 3rem 6vw 6rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.contact-member {
+  background: var(--c4);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact-member h2 {
+  font-family: var(--font-disp);
+  font-size: 2.2rem;
+  color: var(--c1);
+  line-height: 1;
+}
+
+.contact-role {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--c3);
+  margin-bottom: 0.6rem;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.contact-links a {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--c1);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: opacity 0.2s;
+}
+
+.contact-links a:hover { opacity: 0.6; }
+.contact-links i        { width: 1.2rem; text-align: center; }
+
+@media (max-width: 768px) {
+  .page-hero        { padding: 6rem 5vw 1.5rem; }
+  .contact-section  { padding: 2rem 5vw 4rem; }
+  .contact-grid     { grid-template-columns: 1fr; }
+}

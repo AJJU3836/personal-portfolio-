@@ -1,0 +1,27 @@
+/* ===== TEAM PAGE ===== */
+.page-hero {
+  min-height: 45vh;
+  background: var(--c1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 7rem 6vw 3.5rem;
+}
+
+.cards-section {
+  background: var(--c3);
+  padding: 4rem 6vw 6rem;
+}
+
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .page-hero  { padding: 6rem 5vw 2.5rem; }
+  .cards-section { padding: 3rem 5vw 4rem; }
+  .members-grid { grid-template-columns: 1fr; }
+}

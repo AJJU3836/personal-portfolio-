@@ -1,0 +1,15 @@
+<!-- Team page reuses the same member cards grid -->
+<section class="page-hero" id="card-team">
+  <p class="section-label" data-aos="fade-down" data-aos-duration="1200">THE TEAM</p>
+  <p class="page-sub" data-aos="fade-up" data-aos-duration="1400">
+    Meet the five people behind the code.
+  </p>
+</section>
+
+<section class="cards-section">
+  <div class="members-grid">
+    @for (member of team; track member.slug) {
+      <app-member-card [member]="member" data-aos="zoom-in" data-aos-duration="600" />
+    }
+  </div>
+</section>

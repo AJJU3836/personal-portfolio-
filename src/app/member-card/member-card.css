@@ -1,0 +1,89 @@
+/* ===== MEMBER CARD ===== */
+.member-card {
+  background: var(--c1);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.member-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.35);
+}
+
+/* Photo area */
+.card-photo {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: var(--c3);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Body */
+.card-body {
+  padding: 1.4rem 1.6rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.card-name {
+  font-family: var(--font-disp);
+  font-size: 2rem;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.card-role {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-dk);
+}
+
+/* Skills pills */
+.card-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.6rem 0;
+}
+
+.card-skills li {
+  background: var(--accent);
+  color: var(--text-lt);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  padding: 0.2rem 0.75rem;
+  border-radius: 2rem;
+}
+
+/* View Profile button */
+.card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  background: var(--accent);
+  color: var(--text-lt);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 0.55rem 1.3rem;
+  border-radius: 2rem;
+  align-self: flex-start;
+  transition: background 0.25s;
+}
+
+.card-btn:hover { background: var(--c5); }

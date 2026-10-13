@@ -1,0 +1,20 @@
+<div class="member-card">
+  <div class="card-photo">
+    <img [src]="member.photo" [alt]="member.name + ' photo'" />
+  </div>
+
+  <div class="card-body">
+    <h3 class="card-name">{{ member.name }}</h3>
+    <p class="card-role">{{ member.role }}</p>
+
+    <ul class="card-skills">
+      @for (skill of member.topSkills; track skill) {
+        <li>{{ skill }}</li>
+      }
+    </ul>
+
+    <a class="card-btn" [routerLink]="['/member', member.slug]">
+      View Profile <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+</div>

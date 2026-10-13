@@ -1,0 +1,28 @@
+<section class="page-hero" id="card-projects">
+  <p class="section-label" data-aos="fade-down" data-aos-duration="1200">PROJECTS</p>
+  <p class="page-sub" data-aos="fade-up" data-aos-duration="1400">
+    What we have built so far.
+  </p>
+</section>
+
+<section class="projects-page-section">
+  @for (member of team; track member.slug) {
+    <div class="member-projects" data-aos="fade-up" data-aos-duration="900">
+      <h2 class="member-projects-name">
+        {{ member.name }}
+        <span class="member-projects-role">— {{ member.role }}</span>
+      </h2>
+      <div class="projects-row">
+        @for (project of member.projects; track project.name) {
+          <div class="project-card">
+            <h3>{{ project.name }}</h3>
+            <p>{{ project.description }}</p>
+            <a [href]="project.url" target="_blank" class="project-link">
+              View <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        }
+      </div>
+    </div>
+  }
+</section>

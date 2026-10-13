@@ -1,0 +1,26 @@
+<section class="page-hero" id="card-contact">
+  <h1 class="contact-title" data-aos="fade-down" data-aos-duration="1200">GET IN TOUCH</h1>
+  <hr class="contact-hr">
+</section>
+
+<section class="contact-section">
+  <div class="contact-grid">
+    @for (member of team; track member.slug) {
+      <div class="contact-member" data-aos="fade-right" data-aos-duration="900">
+        <h2>{{ member.name }}</h2>
+        <p class="contact-role">{{ member.role }}</p>
+        <div class="contact-links">
+          <a [href]="member.github" target="_blank">
+            <i class="fa-brands fa-github"></i> Github
+          </a>
+          <a [href]="member.linkedin" target="_blank">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+          </a>
+          <a [href]="'mailto:' + member.email">
+            <i class="fa-solid fa-envelope"></i> Email
+          </a>
+        </div>
+      </div>
+    }
+  </div>
+</section>

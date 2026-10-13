@@ -1,0 +1,61 @@
+@if (member) {
+  <div class="profile-page">
+
+    <!-- Back button -->
+    <a routerLink="/" class="back-btn">
+      <i class="fa-solid fa-arrow-left"></i> Back to Home
+    </a>
+
+    <!-- Hero strip -->
+    <div class="profile-hero">
+      <div class="profile-photo">
+        <img [src]="member.photo" [alt]="member.name" />
+      </div>
+      <div class="profile-intro">
+        <h1 data-aos="fade-up" data-aos-duration="1000">{{ member.name }}</h1>
+        <p class="profile-role" data-aos="fade-up" data-aos-duration="1200">{{ member.role }}</p>
+        <p class="profile-bio" data-aos="fade-up" data-aos-duration="1400">{{ member.bio }}</p>
+
+        <!-- Social links -->
+        <div class="profile-links" data-aos="fade-up" data-aos-duration="1600">
+          <a [href]="member.github" target="_blank" title="GitHub">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+          <a [href]="member.linkedin" target="_blank" title="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+          </a>
+          <a [href]="'mailto:' + member.email" title="Email">
+            <i class="fa-solid fa-envelope"></i> Email
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="profile-section" data-aos="fade-up" data-aos-duration="900">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        @for (skill of member.skills; track skill) {
+          <li>{{ skill }}</li>
+        }
+      </ul>
+    </div>
+
+    <!-- Projects -->
+    <div class="profile-section" data-aos="fade-up" data-aos-duration="900">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        @for (project of member.projects; track project.name) {
+          <div class="project-card">
+            <h3>{{ project.name }}</h3>
+            <p>{{ project.description }}</p>
+            <a [href]="project.url" target="_blank" class="project-link">
+              View <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        }
+      </div>
+    </div>
+
+  </div>
+}

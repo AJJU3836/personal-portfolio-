@@ -1,0 +1,70 @@
+/* ================================================================
+   GLOBAL STYLES — OG earthy theme adapted for Group Portfolio
+   ================================================================ */
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg:        #6e473b;
+  --nav:       #651b04;
+  --c1:        #e1d4c2;   /* cream */
+  --c2:        #beb5a9;   /* stone */
+  --c3:        #a78d78;   /* tan */
+  --c4:        #6e473b;   /* brown */
+  --c5:        #291c0e;   /* darkest */
+  --accent:    #651b04;
+  --text-lt:   #e1d4c2;
+  --text-dk:   #6e473b;
+  --font-disp: "Coiny", cursive;
+  --font-body: "Bitcount Single", sans-serif;
+  --font-ui:   "Poppins", sans-serif;
+  --radius:    14px;
+  --shadow:    0 6px 28px rgba(0,0,0,0.25);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-lt);
+  font-family: var(--font-ui);
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; }
+img { display: block; max-width: 100%; }
+ul { list-style: none; }
+
+/* ---------- Shared page sections ---------- */
+.section-label {
+  font-family: var(--font-disp);
+  font-size: clamp(5rem, 12vw, 12rem);
+  line-height: 0.85;
+  color: var(--accent);
+}
+
+.page-sub {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  margin-top: 1.2rem;
+  max-width: 600px;
+}
+
+/* ---------- Main layout ---------- */
+main {
+  min-height: calc(100vh - 7rem);
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar          { width: 8px; }
+::-webkit-scrollbar-track    { background: var(--c1); }
+::-webkit-scrollbar-thumb    { background: var(--accent); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: var(--c5); }
